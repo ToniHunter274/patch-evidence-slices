@@ -1,0 +1,66 @@
+{
+  "selection": "difference=functionality AND status=ABS_accepted in local prior exact-SHA join",
+  "public_originals": {
+    "PatchDiff_pinned_commit": "0a8ed608f9f19396e1bb3f6f3dd88b0fb88b49d6",
+    "SWE_ABS_pinned_commit": "26b4c736ca3d566d8395d7999304d0264abe7992",
+    "Gold_Coupled_pinned_commit": "10869825a6b47e70785483083e2828a8ec683155",
+    "Gold_Coupled_entries_url": "https://raw.githubusercontent.com/ph-phuc/swe-bench-gold-coupling/10869825a6b47e70785483083e2828a8ec683155/data/labels/entries.csv",
+    "Gold_Coupled_entries_SHA256": "bcdd1e2f33e41859456006d89fd5ef19a117eb6ffb6c8ebc2e07c531f63f2910",
+    "Gold_Coupled_task_verdicts_url": "https://raw.githubusercontent.com/ph-phuc/swe-bench-gold-coupling/10869825a6b47e70785483083e2828a8ec683155/data/task_verdicts.csv",
+    "PatchDiff_RQ1_results_archive": "https://doi.org/10.5281/zenodo.17074796"
+  },
+  "rows": 33,
+  "tasks": 20,
+  "within_task_pairs": 17,
+  "asserted_counts": {
+    "selected_patches": 33,
+    "selected_tasks": 20,
+    "within_task_pairs": 17,
+    "tasks_with_multiple_patches": 9,
+    "pairs_sharing_any_test": 16,
+    "pairs_with_identical_sets": 11
+  },
+  "summary_from_population_audit": {
+    "selected_patches": 33,
+    "selected_tasks": 20,
+    "tasks_with_multiple_patches": 9,
+    "patches_in_multi_patch_tasks": 22,
+    "within_task_pairs": 17,
+    "pairs_sharing_any_test": 16,
+    "pairs_with_identical_sets": 11,
+    "pairs_with_full_small_set_containment": 16,
+    "pair_weighted_mean_jaccard": 0.7602941176470589,
+    "task_balanced_mean_jaccard": 0.7101851851851851,
+    "pair_weighted_mean_containment": 0.9411764705882353,
+    "task_balanced_mean_containment": 0.8888888888888888,
+    "task_class_counts_CONTEXT_ONLY": {
+      "coupled": 4,
+      "in_scope": 10,
+      "unclassified": 6
+    },
+    "patch_counts_by_task_class_CONTEXT_ONLY": {
+      "coupled": 6,
+      "in_scope": 13,
+      "unclassified": 14
+    },
+    "exact_prediction_patch_matches": 33,
+    "rq1_failure_lists_found": 33,
+    "total_selected_records": 33,
+    "source_warning": "ABS_accepted is inherited from a prior locally generated exact-patch join. This script independently verifies PatchDiff prediction SHAs and RQ1 failure lists; it DOES NOT independently regenerate the SWE-ABS patch-level verdict join. A task-level Gold-Coupled class is NOT a classification of a selected patch.",
+    "counts_are_complete": true
+  },
+  "output_sha256": {
+    "radar_33_exact_patch_evidence.csv": "d223b88f246b31c3fa759121ce6ef391d7ed07a5721fc7c90d7edb4967a4eeb6",
+    "radar_17_within_task_pairs.csv": "8ea4fdfcd8573c333a8adcd0e68892cf358d30c8676ad4f5038d577e3fdd8c13",
+    "radar_20_task_summary.csv": "56b7b6da5494687525f2c196d457f50d9eed6d175526301d875b3768f0a6ebaf"
+  },
+  "prior_join_sha256": "ac49d7828b5fea8e0bf86b4678d78b38f3e8a2d4e143ca8368fd2c7c210cdb77",
+  "original_caveats": [
+    "Selected patches are NOT a random sample: no prevalence estimate follows.",
+    "Hardened acceptance is a benchmark outcome, not proof of semantic correctness.",
+    "PatchDiff failing-test lists are reported test IDs, not independent root causes.",
+    "Gold-Coupled task class is contextual: based on potentially OTHER rejected patches.",
+    "Gold-Coupled labels reproduce SWE-ABS outcomes, not a statistically independent replication.",
+    "The public source CSV is a derivative table; verify the original cited sources."
+  ]
+}
