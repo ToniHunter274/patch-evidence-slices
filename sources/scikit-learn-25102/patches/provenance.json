@@ -1,0 +1,47 @@
+{
+  "scope": "Literal model_patch bytes extracted from original public prediction rows; no derived analysis",
+  "instance_id": "scikit-learn__scikit-learn-25102",
+  "source": {
+    "zenodo_record": "https://zenodo.org/records/18258368",
+    "archive": "PatchDiff_0115_1.zip",
+    "archive_md5": "c99c9e842c72ed14b9c206a97e84dff2",
+    "patchdiff_repository_commit": "0a8ed608f9f19396e1bb3f6f3dd88b0fb88b49d6"
+  },
+  "patches": {
+    "P1": {
+      "filename": "P1_openhands_exact.diff",
+      "patch_sha256": "b9dca3258cfe7ca10e4bf7a8e158c485e39740a26fadc5fd85c84998692712ed",
+      "bytes": 5236,
+      "prediction_source": {
+        "zip_member": "PatchDiff/data/tool_results/20241029_OpenHands-CodeAct-2.1-sonnet-20241022_verified/all_preds.jsonl",
+        "pinned_github_url": "https://github.com/ZJU-CTAG/PatchDiff/blob/0a8ed608f9f19396e1bb3f6f3dd88b0fb88b49d6/data/tool_results/20241029_OpenHands-CodeAct-2.1-sonnet-20241022_verified/all_preds.jsonl#L366",
+        "git_blob_sha1": "f617418f9206ceac6d6bb7ad7316b13ca3ac3d8d",
+        "line": 366,
+        "field": "model_patch",
+        "model_name_or_path": "claude-3-5-sonnet-20241022_maxiter_100_N_v2.1-no-hint-v0.5-multiaction-run_1"
+      },
+      "modified_paths": [
+        "reproduce_error.py",
+        "sklearn/utils/_set_output.py",
+        "test_edge_cases.py"
+      ]
+    },
+    "P2": {
+      "filename": "P2_learn_by_interact_directory_exact.diff",
+      "patch_sha256": "16474b0397fd7f896ace7e6bbfd966dbd4e6d797554204930e2f4caa839d7920",
+      "bytes": 2987,
+      "prediction_source": {
+        "zip_member": "PatchDiff/data/tool_results/20250110_learn_by_interact_claude3.5/all_preds.jsonl",
+        "pinned_github_url": "https://github.com/ZJU-CTAG/PatchDiff/blob/0a8ed608f9f19396e1bb3f6f3dd88b0fb88b49d6/data/tool_results/20250110_learn_by_interact_claude3.5/all_preds.jsonl#L185",
+        "git_blob_sha1": "e3015da56382a3ef7cd9375e83c6e5cc8d059415",
+        "line": 185,
+        "field": "model_patch",
+        "model_name_or_path": "openhands"
+      },
+      "modified_paths": [
+        "reproduce_dtype.py",
+        "sklearn/utils/_set_output.py"
+      ]
+    }
+  }
+}
