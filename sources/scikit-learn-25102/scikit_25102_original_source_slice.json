@@ -1,0 +1,91 @@
+{
+  "scope": "source excerpts only; no inferred defects or independent execution claims",
+  "instance_id": "scikit-learn__scikit-learn-25102",
+  "sources": {
+    "PatchDiff": {
+      "archive_url": "https://zenodo.org/records/18258368",
+      "archive_zip_member": "PatchDiff_0115_1.zip",
+      "archive_zip_md5": "c99c9e842c72ed14b9c206a97e84dff2",
+      "replication_commit": "0a8ed608f9f19396e1bb3f6f3dd88b0fb88b49d6"
+    },
+    "Gold-Coupled": {
+      "url": "https://raw.githubusercontent.com/ph-phuc/swe-bench-gold-coupling/10869825a6b47e70785483083e2828a8ec683155/data/labels/entries.csv",
+      "commit": "10869825a6b47e70785483083e2828a8ec683155",
+      "full_csv_sha256": "bcdd1e2f33e41859456006d89fd5ef19a117eb6ffb6c8ebc2e07c531f63f2910",
+      "csv_header": "system,instance_id,sha,label_official,label_hardened,label_utboost"
+    }
+  },
+  "patches": {
+    "P1": {
+      "patch_sha256": "b9dca3258cfe7ca10e4bf7a8e158c485e39740a26fadc5fd85c84998692712ed",
+      "prediction": {
+        "original_member": "PatchDiff/data/tool_results/20241029_OpenHands-CodeAct-2.1-sonnet-20241022_verified/all_preds.jsonl",
+        "original_line": 366,
+        "original_github_url": "https://github.com/ZJU-CTAG/PatchDiff/blob/0a8ed608f9f19396e1bb3f6f3dd88b0fb88b49d6/data/tool_results/20241029_OpenHands-CodeAct-2.1-sonnet-20241022_verified/all_preds.jsonl#L366",
+        "instance_id": "scikit-learn__scikit-learn-25102",
+        "model_name_or_path": "claude-3-5-sonnet-20241022_maxiter_100_N_v2.1-no-hint-v0.5-multiaction-run_1"
+      },
+      "patchdiff_rq1": {
+        "original_zip_member": "PatchDiff/results/RQ1_OpenHands_runall.json",
+        "full_member_sha256": "9e6913c0f169d5d62261ba8266400675cdbda3f531cd6d9cc3a92d5b6465421c",
+        "record": {
+          "oracle_pass_model_fail": [
+            "sklearn/preprocessing/tests/test_encoders.py::test_ordinal_set_output"
+          ],
+          "difference": "functionality"
+        }
+      },
+      "gold_coupled": {
+        "original_csv_line": 30269,
+        "source_url": "https://github.com/ph-phuc/swe-bench-gold-coupling/blob/10869825a6b47e70785483083e2828a8ec683155/data/labels/entries.csv#L30269",
+        "original_row": {
+          "system": "20241029_OpenHands-CodeAct-2.1-sonnet-20241022",
+          "instance_id": "scikit-learn__scikit-learn-25102",
+          "sha": "b9dca3258cfe7ca10e4bf7a8e158c485e39740a26fadc5fd85c84998692712ed",
+          "label_official": "1",
+          "label_hardened": "1",
+          "label_utboost": "1"
+        }
+      }
+    },
+    "P2": {
+      "patch_sha256": "16474b0397fd7f896ace7e6bbfd966dbd4e6d797554204930e2f4caa839d7920",
+      "prediction": {
+        "original_member": "PatchDiff/data/tool_results/20250110_learn_by_interact_claude3.5/all_preds.jsonl",
+        "original_line": 185,
+        "original_github_url": "https://github.com/ZJU-CTAG/PatchDiff/blob/0a8ed608f9f19396e1bb3f6f3dd88b0fb88b49d6/data/tool_results/20250110_learn_by_interact_claude3.5/all_preds.jsonl#L185",
+        "instance_id": "scikit-learn__scikit-learn-25102",
+        "model_name_or_path": "openhands"
+      },
+      "patchdiff_rq1": {
+        "original_zip_member": "PatchDiff/results/RQ1_LearnByInteract_runall.json",
+        "full_member_sha256": "b6471f1b6a4d66cb3dc08c001d2a908e9a9ca179f273edb4083bfa20cd004cf7",
+        "record": {
+          "oracle_pass_model_fail": [
+            "sklearn/compose/tests/test_column_transformer.py::test_transformers_with_pandas_out_but_not_feature_names_out[trans_10-expected_verbose_names0-expected_non_verbose_names0]",
+            "sklearn/compose/tests/test_column_transformer.py::test_column_transformer_set_output[drop-False]",
+            "sklearn/preprocessing/tests/test_encoders.py::test_ordinal_set_output",
+            "sklearn/compose/tests/test_column_transformer.py::test_column_transformer_set_output[drop-True]",
+            "sklearn/compose/tests/test_column_transformer.py::test_transformers_with_pandas_out_but_not_feature_names_out[passthrough-expected_verbose_names2-expected_non_verbose_names2]",
+            "sklearn/compose/tests/test_column_transformer.py::test_column_transformer_set_output[passthrough-True]",
+            "sklearn/compose/tests/test_column_transformer.py::test_column_transformer_set_output[passthrough-False]",
+            "sklearn/compose/tests/test_column_transformer.py::test_transformers_with_pandas_out_but_not_feature_names_out[drop-expected_verbose_names1-expected_non_verbose_names1]"
+          ],
+          "difference": "functionality"
+        }
+      },
+      "gold_coupled": {
+        "original_csv_line": 30277,
+        "source_url": "https://github.com/ph-phuc/swe-bench-gold-coupling/blob/10869825a6b47e70785483083e2828a8ec683155/data/labels/entries.csv#L30277",
+        "original_row": {
+          "system": "20250110_learn_by_interact_claude3.5",
+          "instance_id": "scikit-learn__scikit-learn-25102",
+          "sha": "16474b0397fd7f896ace7e6bbfd966dbd4e6d797554204930e2f4caa839d7920",
+          "label_official": "1",
+          "label_hardened": "1",
+          "label_utboost": "1"
+        }
+      }
+    }
+  }
+}
