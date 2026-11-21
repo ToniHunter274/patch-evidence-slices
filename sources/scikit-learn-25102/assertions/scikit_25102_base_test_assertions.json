@@ -1,0 +1,41 @@
+{
+  "scope": "verbatim source excerpts only; no causal interpretation",
+  "instance_id": "scikit-learn__scikit-learn-25102",
+  "repository": "https://github.com/scikit-learn/scikit-learn",
+  "base_commit": "f9a1cf072da9d7375d6c2163f68a6038b13b310f",
+  "records": [
+    {
+      "source_url": "https://github.com/scikit-learn/scikit-learn/blob/f9a1cf072da9d7375d6c2163f68a6038b13b310f/sklearn/preprocessing/tests/test_encoders.py#L1975-L1992",
+      "file_path": "sklearn/preprocessing/tests/test_encoders.py",
+      "source_commit": "f9a1cf072da9d7375d6c2163f68a6038b13b310f",
+      "full_file_sha256": "7755c17bcacfb6a0ff3fae6465ca634de28e75aa819039eb43fefbd6e1a9cbf8",
+      "full_file_byte_count": 67331,
+      "start_line": 1975,
+      "end_line": 1992,
+      "excerpt_sha256": "de7d4d2a6a22bea8e4fc6f2c14187e2e1221699ef87bf49796661df79aa8904a",
+      "verbatim": "def test_ordinal_set_output():\n    \"\"\"Check OrdinalEncoder works with set_output.\"\"\"\n    pd = pytest.importorskip(\"pandas\")\n\n    X_df = pd.DataFrame({\"A\": [\"a\", \"b\"], \"B\": [1, 2]})\n\n    ord_default = OrdinalEncoder().set_output(transform=\"default\")\n    ord_pandas = OrdinalEncoder().set_output(transform=\"pandas\")\n\n    X_default = ord_default.fit_transform(X_df)\n    X_pandas = ord_pandas.fit_transform(X_df)\n\n    assert_allclose(X_pandas.to_numpy(), X_default)\n    assert_array_equal(ord_pandas.get_feature_names_out(), X_pandas.columns)\n\n\ndef test_predefined_categories_dtype():\n    \"\"\"Check that the categories_ dtype is `object` for string categories\n"
+    },
+    {
+      "source_url": "https://github.com/scikit-learn/scikit-learn/blob/f9a1cf072da9d7375d6c2163f68a6038b13b310f/sklearn/compose/tests/test_column_transformer.py#L1946-L1972",
+      "file_path": "sklearn/compose/tests/test_column_transformer.py",
+      "source_commit": "f9a1cf072da9d7375d6c2163f68a6038b13b310f",
+      "full_file_sha256": "0687e0f2aa5c61ad48007fd628eccacd22897ba496c2ef619ed06605561b8fa9",
+      "full_file_byte_count": 73895,
+      "start_line": 1946,
+      "end_line": 1972,
+      "excerpt_sha256": "0fa66f40c8f0ab068a4d8c51a8d9e3dfeb6c6b36970703a1b8509e923a664bc5",
+      "verbatim": "def test_column_transformer_set_output(verbose_feature_names_out, remainder):\n    \"\"\"Check column transformer behavior with set_output.\"\"\"\n    pd = pytest.importorskip(\"pandas\")\n    df = pd.DataFrame([[1, 2, 3, 4]], columns=[\"a\", \"b\", \"c\", \"d\"], index=[10])\n    ct = ColumnTransformer(\n        [(\"first\", TransWithNames(), [\"a\", \"c\"]), (\"second\", TransWithNames(), [\"d\"])],\n        remainder=remainder,\n        verbose_feature_names_out=verbose_feature_names_out,\n    )\n    X_trans = ct.fit_transform(df)\n    assert isinstance(X_trans, np.ndarray)\n\n    ct.set_output(transform=\"pandas\")\n\n    df_test = pd.DataFrame([[1, 2, 3, 4]], columns=df.columns, index=[20])\n    X_trans = ct.transform(df_test)\n    assert isinstance(X_trans, pd.DataFrame)\n\n    feature_names_out = ct.get_feature_names_out()\n    assert_array_equal(X_trans.columns, feature_names_out)\n    assert_array_equal(X_trans.index, df_test.index)\n\n\n@pytest.mark.parametrize(\"remainder\", [\"drop\", \"passthrough\"])\n@pytest.mark.parametrize(\"fit_transform\", [True, False])\ndef test_column_transform_set_output_mixed(remainder, fit_transform):\n    \"\"\"Check ColumnTransformer outputs mixed types correctly.\"\"\"\n"
+    },
+    {
+      "source_url": "https://github.com/scikit-learn/scikit-learn/blob/f9a1cf072da9d7375d6c2163f68a6038b13b310f/sklearn/compose/tests/test_column_transformer.py#L2099-L2135",
+      "file_path": "sklearn/compose/tests/test_column_transformer.py",
+      "source_commit": "f9a1cf072da9d7375d6c2163f68a6038b13b310f",
+      "full_file_sha256": "0687e0f2aa5c61ad48007fd628eccacd22897ba496c2ef619ed06605561b8fa9",
+      "full_file_byte_count": 73895,
+      "start_line": 2099,
+      "end_line": 2135,
+      "excerpt_sha256": "485a96e3c63e5b0af3c205d3ee33d101260b626a2b158697991578e109b27a1c",
+      "verbatim": "def test_transformers_with_pandas_out_but_not_feature_names_out(\n    trans_1, expected_verbose_names, expected_non_verbose_names\n):\n    \"\"\"Check that set_config(transform=\"pandas\") is compatible with more transformers.\n\n    Specifically, if transformers returns a DataFrame, but does not define\n    `get_feature_names_out`.\n    \"\"\"\n    pd = pytest.importorskip(\"pandas\")\n\n    X_df = pd.DataFrame({\"feat0\": [1.0, 2.0, 3.0], \"feat1\": [2.0, 3.0, 4.0]})\n    ct = ColumnTransformer(\n        [\n            (\"trans_0\", PandasOutTransformer(offset=3.0), [\"feat1\"]),\n            (\"trans_1\", trans_1, [\"feat0\"]),\n        ]\n    )\n    X_trans_np = ct.fit_transform(X_df)\n    assert isinstance(X_trans_np, np.ndarray)\n\n    # `ct` does not have `get_feature_names_out` because `PandasOutTransformer` does\n    # not define the method.\n    with pytest.raises(AttributeError, match=\"not provide get_feature_names_out\"):\n        ct.get_feature_names_out()\n\n    # The feature names are prefixed because verbose_feature_names_out=True is default\n    ct.set_output(transform=\"pandas\")\n    X_trans_df0 = ct.fit_transform(X_df)\n    assert_array_equal(X_trans_df0.columns, expected_verbose_names)\n\n    ct.set_params(verbose_feature_names_out=False)\n    X_trans_df1 = ct.fit_transform(X_df)\n    assert_array_equal(X_trans_df1.columns, expected_non_verbose_names)\n\n\n@pytest.mark.parametrize(\n    \"empty_selection\",\n"
+    }
+  ]
+}

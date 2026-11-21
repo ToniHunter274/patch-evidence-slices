@@ -1,2 +1,3 @@
 sources/scikit-learn-25102/patches/*.diff -text
 sources/scikit-learn-25102/datasets/*.json -text
+sources/scikit-learn-25102/assertions/*.json -text
