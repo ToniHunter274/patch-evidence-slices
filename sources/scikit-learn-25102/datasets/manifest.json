@@ -1,0 +1,23 @@
+{
+  "files": [
+    {
+      "filename": "S1_SWE_ABS_scikit_learn_25102.json",
+      "original_dataset": "OpenAgentLab/SWE-Bench_Verified_ABS",
+      "original_revision": "79fc07a8f4ce5e3720e069948073f5f910b7577b",
+      "published_file_sha256": "616ea5079787940350798495f4181365145141d1ec64afca7fbf62deecdddbba"
+    },
+    {
+      "filename": "S15_SWE_bench_Verified_scikit_learn_25102.json",
+      "original_dataset": "princeton-nlp/SWE-bench_Verified",
+      "original_revision": "5201ca8ed3ba13911f792042414401dae3065de4",
+      "published_file_sha256": "cad1d7eb96f5a6a25fb1384a7d9b992ae9f1f620b6decbc2f1e3db046dfec806"
+    },
+    {
+      "filename": "S17_UTBoost_scikit_learn_25102.json",
+      "original_dataset": "Bertsekas/SWE-Bench_Verified_UTBoost",
+      "original_revision": "4747cce37dffd69ed17da141c1c4cbcac2bf804b",
+      "published_file_sha256": "9957fb6bf0cd4f9c4b47f678359c5ef6e8ceb81e3a4c885f36a93044f0f2203b"
+    }
+  ],
+  "instance_id": "scikit-learn__scikit-learn-25102"
+}
